@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Data</title>
+    <style media="screen">
+      table{
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+      }
+      tr:nth-child(even) {
+        background-color:LightGray;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>SOC Data</h1>
+      <form class="" action="index.html">
+        <input type="text" name="user" id="namein">
+        <button type="button" name="go" onclick="search()">Go!</button>
+      </form>
+      <br>
+      <table id="tbl">
+        <tr>
+          <th>Roll Number</th>
+          <th>Name</th>
+          <th>Year</th>
+        </tr>
+        <tr>
+          <td>170817</td>
+          <td>Yash Maheshwari</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170707</td>
+          <td>Snehil Saluja</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170531</td>
+          <td>Rahul Rohit</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170144</td>
+          <td>Archit Awasthi</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170041</td>
+          <td>Achyut Kumar Verma</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170818</td>
+          <td>Yash Mittal</td>
+          <td>2019</td>
+        </tr>
+        <tr>
+          <td>170274</td>
+          <td>Geetam</td>
+          <td>2019</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+  <script type="text/javascript">
+    function search() {
+      var inp=document.getElementById('namein');
+      var tab=document.getElementById('tbl');
+      var row=tab.getElementsByTagName('tr');
+      var filter=inp.value.toUpperCase();
+
+      for (i=0;i<row.length;i++){
+        var data=row[i].getElementsByTagName('td')[1];
+        if(data){
+          var txt=data.innerHTML;
+          if(txt.toUpperCase().indexOf(filter) < 0){
+            row[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</html>

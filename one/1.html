@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My slider</title>
+    <style>
+      * {box-sizing: border-box}
+      img {vertical-align: middle;}
+      .image {display: none}
+
+      .container {
+        max-width: 800px;
+        position: relative;
+        margin: auto;
+      }
+      .back, .fwd {
+        cursor:pointer;
+        position: absolute;
+        padding: 15px;
+        color:white;
+        margin-top: -22px;
+        top: 50%;
+        width: auto;
+        user-select: none;
+      }
+      .fwd {
+        right:0;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>My First Slider</h1>
+      <h6>An internet connection is must!</h6>
+    </center>
+      <div class="container">
+        <div class="image">
+          <img src="https://www.psdstack.com/wp-content/uploads/2018/02/barnimages-2.jpg" alt="img1" style="width:100%" height="500px">
+        </div>
+        <div class="image">
+          <img src="https://www.psdstack.com/wp-content/uploads/2016/10/morguefile-3.jpg" alt="img2" style="width:100%" height="500px">
+        </div>
+        <div class="image">
+          <img src="https://www.psdstack.com/wp-content/uploads/2016/10/gratisography-6.jpg" alt="img3" style="width:100%" height="500px">
+        </div>
+        <div class="image">
+          <img src="https://www.psdstack.com/wp-content/uploads/2016/10/foodiesfeed-9.jpg" alt="img4" style="width:100%" height="500px">
+        </div>
+        <a class="back" onclick="move(-1)"> &#10094; </a>
+        <a class="fwd" onclick="move(1)"> &#10095; </a>
+      </div>
+  </body>
+  <script>
+    var slideIndex = 1;
+    showimg(slideIndex);
+
+    function move(n) {
+      showimg(slideIndex += n);
+    }
+
+    function showimg(n) {
+    var i;
+    var slides = document.getElementsByClassName("image");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+  }
+  </script>
+</html>
